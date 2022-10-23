@@ -1,10 +1,12 @@
+import Footer from "./Footer"
 import Navbar from "./Navbar"
 
 function MainContainer({children}) {
   return (
     <>
-    <Navbar/>
-    <div>{children}</div>
+      <Navbar/>
+      <div>{children}</div>
+      <Footer/>
     </>
   )
 }
