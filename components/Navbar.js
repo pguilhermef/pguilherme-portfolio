@@ -10,21 +10,21 @@ const navigation = [
 
 function Navbar() {
   return (
-    <div>
-      <div>
-      <Link href='/'>
-        <a>
-        <Image
-          src={logo_light}
-          alt="logo_light"
-        />
-        </a>
-      </Link>
+    <div className="flex justify-around sm:justify-start items-center mt-2 mb-5 ml-5 sm:my-5 sm:ml-8 bg-logo">
+      <div className="w-40">
+        <Link href='/'>
+          <a>
+          <Image
+            src={logo_light}
+            alt="logo_light"
+          />
+          </a>
+        </Link>
       </div>
-      <div>
+      <div className="sm:ml-10">
       {navigation.map((item) => (
         <Link key={item.name} href={item.href}>
-          <a>
+          <a className="font-extrabold mr-2 md:mr-4 xl:mr-10">
             {item.name}
           </a>
         </Link>
