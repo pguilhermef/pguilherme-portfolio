@@ -3,7 +3,8 @@ import Link from "next/link";
 import logo_light from "../public/logo_images/logo_light.png"
 
 const navigation = [
-  { name: 'Quem sou eu', href: '/' },
+  { name: 'Início', href: '/' },
+  { name: 'Quem sou eu', href: '/about' },
   { name: 'Projetos', href: '/projects' },
   { name: 'Wallpapers', href: '/wallpapers' },
 ]
