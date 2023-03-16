@@ -13,9 +13,9 @@ function Footer() {
   return (
     <>
     <div>
-      <span>Entre em contato comigo!</span>
+      <span id='about'>Entre em contato comigo!</span>
       <p>
-        <a href="mailto:pguilhermesanttos@gmail.com">pguilhermesanttos@gmail.com</a>
+        <a  href="mailto:pguilhermesanttos@gmail.com">pguilhermesanttos@gmail.com</a>
       </p>
       <div>
       {links.map((item) => (
