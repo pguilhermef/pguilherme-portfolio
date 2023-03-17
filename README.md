@@ -12,8 +12,6 @@
   <h2>Construção</h2>
   <p>Este projeto foi uma oportunidade para aprimorar minhas habilidades em Next.js e Tailwind CSS, além de me permitir criar um espaço online para mostrar meus projetos e habilidades como desenvolvedor fullstack.</p>
 
-Você pode acessar meu portfólio pessoal em https://vercel.com/pg.
-
   <h2>Acesso ao portfólio</h2>
   <p>Você pode acessar meu portfólio pessoal em <a href="https://pguilherme-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">https://pguilherme-portfolio.vercel.app/</a>.</p>
 
