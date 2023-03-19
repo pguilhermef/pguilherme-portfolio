@@ -20,7 +20,7 @@ function Navbar() {
   const [navbar, setNavbar] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-white fixed top-0 left-0 right-0 z-10">
+      <nav className="w-full bg-white fixed top-0 left-0 right-0 z-10 font-poppins">
         <div className="justify-between items-center px-7 mx-auto lg:max-w-7xl lg:items-center lg:flex">
           <div>
             <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
@@ -59,7 +59,7 @@ function Navbar() {
                     <li
                     key={item.name}
                     onClick={() => setNavbar(!navbar)}
-                    className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 2xl:font-medium lg:hover:bg-transparent">
+                    className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
                   <Link href={item.href} >
                     {item.name}
                   </Link>
