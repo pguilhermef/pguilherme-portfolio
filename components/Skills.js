@@ -1,19 +1,16 @@
 import React from 'react';
-import Image from 'next/image';
 
-import pegePhoto from '../public/pguilherme.jpeg'
-
-function AboutMe() {
+function Skills() {
   return (
       <section
-      id='about'
+      id='skills'
       className='flex h-screen text-black bg-green-400 text-center'
       >
         <h1
         className='m-auto'
-        >ABOUT</h1>
+        >SKILLS</h1>
       </section>  
   )
 }
 
-export default AboutMe
+export default Skills
