@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import logo_light from "../public/logo_images/logo_light.png"
+
+import closeNavbar from '../public/navbar_svg/close_navbar.svg'
+import openNavbar from '../public/navbar_svg/open_navbar.svg'
+import logo from '../public/logo_images/logo_light.png'
 
 const navigation = [
   { name: 'Início', href: '#home' },
@@ -14,41 +17,61 @@ const navigation = [
 // To do: Criar menu responsivo para telas menores.
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  
+  const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="">
-      <div className="mx-3 p-4 flex justify-center">
-        <div className="flex justify-between xl:justify-evenly w-2/4 bg-red-500">
-          {/* Logo */}
-          <div className="flex justify-start items-center">
-            <div className="flex jus w-40 xl:w-60">
-                <Link href='/' className="light"> 
-                  <a>
-                  <Image
-                    src={logo_light}
-                    alt="logo_light"
-                    className=""
-                  />
-                  </a>
+    <div>
+      <nav className="w-full bg-white fixed top-0 left-0 right-0 z-10">
+        <div className="justify-between items-center px-7 mx-auto lg:max-w-7xl lg:items-center lg:flex">
+          <div>
+            <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
+              {/* LOGO */}
+              <div
+              className="w-40 lg:w-52 flex hover:cursor-pointer"
+              onClick={() => setNavbar(!navbar)}
+              >
+                <Link href="/">
+                  <Image src={logo} alt="logo"/>
                 </Link>
               </div>
-          </div>
-          {/* Navigation */}
-          <div className="flex justify-end items-center">
-            <div className="hidden md:flex justify-end items-center space-x-1 xl:space-x-2">
-              {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="py-4 px-2 font-semibold xl:text-xl text-gray-700 hover:text-black transition duration-300">
-                    {item.name}
-                  </a>
-              ))}
+              {/* HAMBURGER BUTTON FOR MOBILE */}
+              <div className="lg:hidden">
+                <button
+                  className="p-1 text-gray-700 rounded-lg outline-none"
+                  onClick={() => setNavbar(!navbar)}
+                >
+                  {navbar ? (
+                    <Image src={closeNavbar} width={30} height={30} alt="logo" />
+                  ) : (
+                    <Image src={openNavbar} width={30} height={30} alt="logo" />
+                  )}
+                </button>
               </div>
+            </div>
           </div>
-
+          <div>
+            <div
+              className={`flex-1 justify-self-center pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 ${
+                navbar ? 'p-12 block' : 'hidden'
+              }`}
+            >
+              <ul className="h-screen lg:h-auto items-center justify-center lg:flex ">
+                {navigation.map((item) => (
+                    <li
+                    key={item.name}
+                    onClick={() => setNavbar(!navbar)}
+                    className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 2xl:font-medium lg:hover:bg-transparent">
+                  <Link href={item.href} >
+                    {item.name}
+                  </Link>
+                </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
-  )
-}       
+      </nav>
+    </div>
+  );
+}
 
 export default Navbar
