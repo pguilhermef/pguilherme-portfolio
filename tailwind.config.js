@@ -3,6 +3,11 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        portfolio: {
+          white: '#FAFAFA'
+        }
+      },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
