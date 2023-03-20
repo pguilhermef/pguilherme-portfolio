@@ -15,7 +15,7 @@ function Homepage() {
       
 <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-start lg:h-auto lg:w-5/6 lg:mb-10 lg:max-w-screen-2xl'>
   {/* Photo */}
-  <div className='w-64 lg:w-72 flex justify-center'>
+  <div className='w-56 lg:w-72 flex justify-center'>
     <div className='flex justify-center border-solid border-8 border-black rounded-full black-and-white'>
       <Image src={myPhoto} alt="Foto de Paulo Guilherme, desenvolvedor Web Fullstack" className='rounded-full'/>
     </div>
