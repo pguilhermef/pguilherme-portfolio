@@ -17,7 +17,7 @@ const navigation = [
 // To do: Criar menu responsivo para telas menores.
 
 function Navbar() {
-  const [navbar, setNavbar] = useState(false);
+  const [navbarIsOpen, setNavbarIsOpen] = useState(false);
   return (
     <div>
       <nav className="w-full bg-portfolio-white fixed top-0 left-0 right-0 z-10 font-poppins">
@@ -27,7 +27,11 @@ function Navbar() {
               {/* LOGO */}
               <div
               className="w-40 lg:w-52 flex hover:cursor-pointer"
-              onClick={() => setNavbar(!navbar)}
+              onClick={(navbarIsOpen) => {
+                if (navbarIsOpen) {
+                  setNavbarIsOpen(!navbarIsOpen)
+                }
+              }}
               >
                 <Link href="/">
                   <Image src={logo} alt="logo"/>
@@ -37,9 +41,9 @@ function Navbar() {
               <div className="lg:hidden">
                 <button
                   className="p-1 text-gray-700 rounded-lg outline-none"
-                  onClick={() => setNavbar(!navbar)}
+                  onClick={() => setNavbarIsOpen(!navbarIsOpen)}
                 >
-                  {navbar ? (
+                  {navbarIsOpen ? (
                     <Image src={closeNavbar} width={30} height={30} alt="logo" />
                   ) : (
                     <Image src={openNavbar} width={30} height={30} alt="logo" />
@@ -51,14 +55,18 @@ function Navbar() {
           <div>
             <div
               className={`flex-1 justify-self-center pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 ${
-                navbar ? 'p-12 block' : 'hidden'
+                navbarIsOpen ? 'p-12 block' : 'hidden'
               }`}
             >
               <ul className="h-screen lg:h-auto items-center justify-center lg:flex ">
                 {navigation.map((item) => (
                     <li
                     key={item.name}
-                    onClick={() => setNavbar(!navbar)}
+                    onClick={(navbarIsOpen) => {
+                      if (navbarIsOpen !== true) {
+                        setNavbarIsOpen(!navbarIsOpen)
+                      }
+                    }}
                     className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
                   <Link href={item.href} >
                     {item.name}
