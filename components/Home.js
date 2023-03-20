@@ -11,7 +11,7 @@ function Homepage() {
 
   return (
     <section id='home' className='flex flex-col items-center justify-end h-screen text-black font-poppins' ref={ref}>
-      <div className='flex flex-col justify-end h-auto items-center lg:w-full lg:justify-center'>
+      <div className='flex flex-col justify-end h-auto items-center px-7 lg:w-full lg:justify-center'>
       
 <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-start lg:h-auto lg:w-5/6 lg:mb-10 lg:max-w-screen-2xl'>
   {/* Photo */}
