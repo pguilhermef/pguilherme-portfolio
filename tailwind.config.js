@@ -5,7 +5,8 @@ module.exports = {
     extend: {
       colors: {
         portfolio: {
-          white: '#FAFAFA'
+          white: '#FAFAFA',
+          gray: '#333333',
         }
       },
       fontFamily: {
