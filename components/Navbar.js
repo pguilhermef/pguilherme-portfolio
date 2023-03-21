@@ -60,18 +60,17 @@ function Navbar() {
             >
               <ul className="h-screen lg:h-auto items-center justify-center lg:flex ">
                 {navigation.map((item) => (
+                  <Link href={item.href} key={item.name} >
                     <li
-                    key={item.name}
-                    onClick={(navbarIsOpen) => {
-                      if (navbarIsOpen !== true) {
-                        setNavbarIsOpen(!navbarIsOpen)
-                      }
-                    }}
-                    className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
-                  <Link href={item.href} >
-                    {item.name}
+                      onClick={(navbarIsOpen) => {
+                        if (navbarIsOpen !== true) {
+                          setNavbarIsOpen(!navbarIsOpen)
+                        }
+                      }}
+                      className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
+                      {item.name}
+                    </li>
                   </Link>
-                </li>
                 ))}
               </ul>
             </div>
