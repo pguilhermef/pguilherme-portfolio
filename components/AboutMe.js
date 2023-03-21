@@ -8,7 +8,6 @@ import desktop from '../public/about_me_infos/desktop.svg';
 const myInfo = {
   name: 'Paulo Guilherme',
   profession: 'Desenvolvedor Web Fullstack',
-  aboutMe: 'Ao escrever códigos meu lema é: Limpeza, otimização, melhoria contínua e persistência. Sou um desenvolvedor fullstack que tem como principais tecnologias o React.js e Node.js.',
   infosInSquares: [
     {
       icon: clock,
@@ -23,6 +22,10 @@ const myInfo = {
   ],
   photo: myPhoto,
 }
+
+const handleDownload = () => {
+  return window.alert('O currículo está sendo reconstruído. Portanto, está indisponível no momento.')
+};
 
 function AboutMe() {
   return (
@@ -53,8 +56,8 @@ function AboutMe() {
               })}
             </div>
             <div className='flex flex-col mt-5 text-portfolio-gray max-w-md'>
-              <p className="text-left break-words flex justify-start">
-                {myInfo.aboutMe}
+              <p className="text-left break-words">
+                Ao escrever códigos, meu lema é: <strong>Limpeza, otimização, melhoria contínua e persistência.</strong> Minhas principais tecnologias o <strong>React.js</strong> e <strong>Node.js</strong>.
               </p>
             </div>
           </div>
@@ -62,7 +65,9 @@ function AboutMe() {
       </div>
       
       {/* Download Curriculo */}
-      <div className={`flex justify-center items-center mt-8 lg:mt-8 lg:my-24 px-6 py-3 bg-gray-800 rounded-xl`}>
+      <div
+      onClick={handleDownload}
+      className={`flex justify-center items-center mt-8 lg:mt-8 lg:my-24 px-6 py-3 bg-gray-800 rounded-xl hover:bg-gray-700`}>
         <span className='mt-1 font-medium text-white'>Baixar currículo</span>
         <div className='ml-2 w-8'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
