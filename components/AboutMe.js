@@ -44,10 +44,10 @@ function AboutMe() {
 
           {/* Infos */}
           <div className='flex flex-col mt-5 lg:mt-0 lg:text-lg '>
-            <div className='flex w-full justify-center'>
+            <div className='flex w-full justify-center px-5'>
               {myInfo.infosInSquares.map((item) => {
                 return (
-                  <div key={item.title} className='flex flex-col items-center bg-white rounded-lg border-2 px-2 py-3 w-2/6 mx-1'>
+                  <div key={item.title} className='flex flex-col w-full items-center bg-white rounded-lg border-2 px-2 py-3 mx-1'>
                     <Image src={item.icon} alt={`${item.title} icon`}/>
                     <div className='text-black font-medium'>{item.title}</div>
                     <div className='text-filter font-medium text-portfolio-gray'>{item.content}</div>
@@ -56,8 +56,8 @@ function AboutMe() {
               })}
             </div>
             <div className='flex flex-col mt-5 text-portfolio-gray max-w-md'>
-              <p className="text-left break-words">
-                Ao escrever códigos, meu lema é: <strong>Limpeza, otimização, melhoria contínua e persistência.</strong> Minhas principais tecnologias o <strong>React.js</strong> e <strong>Node.js</strong>.
+              <p className="text-left break-words px-7">
+                Ao escrever códigos, meu lema é: <strong>Limpeza, otimização, melhoria contínua e persistência.</strong> As principais tecnologias que uso são o <strong>React.js</strong> e <strong>Node.js</strong>.
               </p>
             </div>
           </div>
