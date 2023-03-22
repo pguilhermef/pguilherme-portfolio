@@ -46,7 +46,7 @@ function Projects() {
   return (
     <section id='projects' className='flex flex-col justify-center items-center min-h-screen text-black font-poppins'>
       <div className='p-16 flex flex-col justify-around h-auto items-center px-7 lg:w-full lg:justify-center'>
-        <div className='flex flex-col items-center p-5'>
+        <div className='flex flex-col items-center'>
           <p className='text-4xl font-semibold'>Projetos</p>
           <p className='text-portfolio-gray'>Meus trabalhos mais recentes</p>
         </div>

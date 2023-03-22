@@ -31,7 +31,7 @@ function AboutMe() {
   return (
     <section id='about' className='flex flex-col justify-center items-center h-screen text-black font-poppins'>
       <div className='flex flex-col justify-evenly items-center w-full max-w-6xl h-5/6'>
-      <div className='flex flex-col h-auto items-center px-7 lg:w-full lg:justify-center'>
+      <div className='flex flex-col h-auto items-center lg:w-full lg:justify-center'>
         <div className='flex'>
           <p className='text-4xl font-semibold'>Sobre mim</p>
         </div>
