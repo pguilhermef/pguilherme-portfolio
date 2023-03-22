@@ -20,13 +20,13 @@ function Navbar() {
   const [navbarIsOpen, setNavbarIsOpen] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-portfolio-white fixed top-0 left-0 right-0 z-20 font-poppins">
+      <nav className="w-full py-3 bg-portfolio-white fixed top-0 left-0 right-0 z-20 font-poppins">
         <div className="justify-between items-center px-7 mx-auto lg:max-w-7xl lg:items-center lg:flex">
           <div>
-            <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
+            <div className="flex items-center justify-between">
               {/* LOGO */}
               <div
-              className="w-40 lg:w-52 flex hover:cursor-pointer"
+              className="w-40 flex hover:cursor-pointer"
               onClick={(navbarIsOpen) => {
                 if (navbarIsOpen) {
                   setNavbarIsOpen(!navbarIsOpen)
@@ -40,7 +40,7 @@ function Navbar() {
               {/* HAMBURGER BUTTON FOR MOBILE */}
               <div className="lg:hidden">
                 <button
-                  className="p-1 text-gray-700 rounded-lg outline-none"
+                  className="px-1 text-gray-700 rounded-lg outline-none"
                   onClick={() => setNavbarIsOpen(!navbarIsOpen)}
                 >
                   {navbarIsOpen ? (
@@ -54,7 +54,7 @@ function Navbar() {
           </div>
           <div>
             <div
-              className={`flex-1 justify-self-center pb-3 mt-8 lg:block lg:pb-0 lg:mt-0 ${
+              className={`flex-1 justify-self-center lg:block ${
                 navbarIsOpen ? 'p-12 block' : 'hidden'
               }`}
             >
@@ -67,7 +67,7 @@ function Navbar() {
                           setNavbarIsOpen(!navbarIsOpen)
                         }
                       }}
-                      className="flex justify-center items-center py-6 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
+                      className="flex justify-center items-center py-6 lg:py-0 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
                       {item.name}
                     </li>
                   </Link>
