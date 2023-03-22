@@ -20,7 +20,7 @@ function Navbar() {
   const [navbarIsOpen, setNavbarIsOpen] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-portfolio-white fixed top-0 left-0 right-0 z-10 font-poppins">
+      <nav className="w-full bg-portfolio-white fixed top-0 left-0 right-0 z-20 font-poppins">
         <div className="justify-between items-center px-7 mx-auto lg:max-w-7xl lg:items-center lg:flex">
           <div>
             <div className="flex items-center justify-between py-3 lg:py-5 lg:block">
