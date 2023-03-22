@@ -45,12 +45,12 @@ const myProjects = [
 function Projects() {
   return (
     <section id='projects' className='flex flex-col justify-center items-center min-h-screen text-black font-poppins'>
-      <div className='flex flex-col justify-end h-auto items-center px-7 lg:w-full lg:justify-center'>
-        <div className='flex flex-col items-center jus mb-10'>
+      <div className='p-16 flex flex-col justify-around h-auto items-center px-7 lg:w-full lg:justify-center'>
+        <div className='flex flex-col items-center p-5'>
           <p className='text-4xl font-semibold'>Projetos</p>
           <p className='text-portfolio-gray'>Meus trabalhos mais recentes</p>
         </div>
-        <div className='flex items-center lg:justify-evenly lg:items-center lg:h-auto w-full lg:mb-10 lg:max-w-screen-lg'>
+        <div className='flex items-center lg:justify-evenly lg:items-center lg:h-auto w-full lg:max-w-screen-lg'>
           {/* Projects */}
             <div className='flex w-full flex-wrap justify-evenly'>
               {myProjects.map((item) => {
