@@ -17,11 +17,11 @@ function Homepage() {
   });
 
   return (
-    <section id='home' className='flex flex-col items-center justify-center h-screen text-black font-poppins mt-5' ref={ref}>
-      <div className='flex flex-col justify-around items-center w-full max-w-6xl h-5/6'>
+    <section id='home' className='flex flex-col items-center justify-center lg:justify-end h-screen lg:h-[70vh] text-black font-poppins mt-5 lg:mb-10' ref={ref}>
+      <div className='flex flex-col justify-around items-center w-full max-w-6xl h-4/6'>
         <div className='flex flex-col h-auto items-center px-7 lg:w-full'>
           <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-start lg:h-auto lg:w-5/6 lg:max-w-screen-2xl'>
-            {/* Photo */}
+            {/* Foto */}
             <div className='w-56 lg:w-72 flex justify-center mb-5'>
               <div className='flex justify-center border-solid border-8 border-black rounded-full black-and-white'>
                 <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-full'/>

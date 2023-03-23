@@ -29,9 +29,10 @@ const handleDownload = () => {
 
 function AboutMe() {
   return (
-    <section id='about' className='flex flex-col justify-center items-center h-screen text-black font-poppins'>
+    <section id='about' className='flex flex-col justify-center items-center h-screen lg:h-[80vh] text-black font-poppins'>
       <div className='flex flex-col justify-evenly items-center w-full max-w-6xl h-5/6'>
       <div className='flex flex-col h-auto items-center lg:w-full lg:justify-center'>
+        {/* Sobre mim */}
         <div className='flex'>
           <p className='text-4xl font-semibold'>Sobre mim</p>
         </div>
@@ -68,7 +69,7 @@ function AboutMe() {
       {/* Download Curriculo */}
       <div
       onClick={handleDownload}
-      className={`flex justify-center items-center px-6 py-3 bg-gray-800 rounded-xl hover:bg-gray-700`}>
+      className={`flex justify-center items-center px-6 py-3 lg:mt-6 bg-gray-800 rounded-xl hover:bg-gray-700`}>
         <span className='mt-1 font-medium text-white'>Baixar currículo</span>
         <div className='ml-2 w-8'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

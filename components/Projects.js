@@ -46,13 +46,14 @@ function Projects() {
   return (
     <section id='projects' className='flex flex-col justify-center items-center min-h-screen text-black font-poppins'>
       <div className='p-16 flex flex-col justify-around h-auto items-center px-7 lg:w-full lg:justify-center'>
-        <div className='flex flex-col items-center'>
+        {/* Titulo */}
+        <div className='flex flex-col items-center lg:mb-5'>
           <p className='text-4xl font-semibold'>Projetos</p>
           <p className='text-portfolio-gray'>Meus trabalhos mais recentes</p>
         </div>
-        <div className='flex items-center lg:justify-evenly lg:items-center lg:h-auto w-full lg:max-w-screen-lg'>
+        <div className='flex items-center lg:justify-evenly lg:items-center lg:h-auto lg:max-w-screen-lg xl:max-w-screen-xl m-auto xl:bg-yellow-300 2xl:bg-green-300'>
           {/* Projects */}
-            <div className='flex w-full flex-wrap justify-evenly'>
+            <div className='flex flex-wrap justify-evenly'>
               {myProjects.map((item) => {
                 return (
                   <Link key={item.name} href={item.githubLink}>
