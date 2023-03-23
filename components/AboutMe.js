@@ -29,12 +29,12 @@ const handleDownload = () => {
 
 function AboutMe() {
   return (
-    <section id='about' className='flex flex-col justify-center items-center h-screen lg:h-[80vh] text-black font-poppins'>
-      <div className='flex flex-col justify-evenly items-center w-full max-w-6xl h-5/6'>
+    <section id='about' className='flex flex-col justify-center items-center h-[90vh] lg:h-[80vh] text-black font-poppins'>
+      <div className='flex flex-col justify-evenly items-center w-full max-w-6xl lg:h-5/6'>
       <div className='flex flex-col h-auto items-center lg:w-full lg:justify-center'>
         {/* Sobre mim */}
         <div className='flex'>
-          <p className='text-4xl font-semibold'>Sobre mim</p>
+          <p className='text-4xl font-semibold mt-2'>Sobre mim</p>
         </div>
         <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-center lg:h-auto lg:w-5/6 lg:mb-10 lg:max-w-screen-xl'>
           {/* Photo */}
