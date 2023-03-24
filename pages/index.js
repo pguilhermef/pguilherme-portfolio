@@ -5,7 +5,7 @@ import Skills from '../components/Skills'
 
 export default function Home() {
   return (
-    <div className='bg-logo'>
+    <div className='bg-logo w-auto'>
         <main>
           <Homepage />
           <AboutMe />

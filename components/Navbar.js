@@ -11,7 +11,6 @@ const navigation = [
   { name: 'Quem sou eu', href: '#about' },
   { name: 'Projetos', href: '#projects' },
   { name: 'Habilidades', href: '#skills' },
-  { name: 'Contato', href: '#contact' },
 ];
 
 // To do: Criar menu responsivo para telas menores.
