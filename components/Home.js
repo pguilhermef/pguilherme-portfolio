@@ -1,7 +1,11 @@
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
+
 import myPhoto from '../public/pguilherme.jpeg';
+import github_logo from '../public/svg_links/github_logo.svg'
+import instagram_logo from '../public/svg_links/instagram_logo.svg'
+import linkedin_logo from '../public/svg_links/linkedin_logo.svg'
 
 const myInfo = {
   name: 'Paulo Guilherme',
@@ -10,6 +14,24 @@ const myInfo = {
   passions: 'Sou apaixonado por tecnologia e sempre em busca de novos desafios. Estou sempre buscando aprender novas ferramentas e aprimorar minhas habilidades para criar soluções e ajudar as pessoas através da tecnologia.',
 }
 
+const links = [
+  {
+    src: github_logo,
+    alt: '/',
+    href: 'https://github.com/pguilhermef'
+  },
+  {
+    src: instagram_logo,
+    alt: '/projects',
+    href: 'https://instagram.com/pege.dev'
+  },
+  {
+    src: linkedin_logo,
+    alt: '/wallpapers',
+    href: 'https://linkedin.com/in/pguilhermef'
+  },
+]
+
 function Homepage() {
   const { ref, inView } = useInView({
     threshold: 0.5,
@@ -17,33 +39,44 @@ function Homepage() {
   });
 
   return (
-    <section id='home' className='flex flex-col items-center justify-end h-[95vh] lg:h-[70vh] text-black font-poppins lg:mt-5 lg:mb-10' ref={ref}>
-      <div className='flex flex-col justify-around items-center w-full max-w-6xl lg:h-4/6'>
+    <section id='home' className='flex flex-col items-center justify-center h-screen text-black font-poppins lg:mt-5 lg:mb-10' ref={ref}>
+      <div className='flex flex-col justify-around items-center w-full max-w-7xl lg:h-4/6 mt-8'>
         <div className='flex flex-col h-auto items-center lg:px-7 lg:w-full'>
-          <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-start lg:h-auto lg:w-5/6 lg:max-w-screen-2xl'>
-            {/* Foto */}
-            <div className='w-56 lg:w-72 flex justify-center mb-5'>
-              <div className='flex justify-center border-solid border-8 border-black rounded-full black-and-white'>
-                <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-full'/>
+          <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-start lg:h-auto lg:w-10/12'>
+              <div className='w-8/12 max-w-xl lg:w-80 flex justify-center mb-5'>
+              {/* Redes sociais */}
+              <div className='flex flex-col items-center justify-center w-2/4 mr-2'>
+              {links.map((item) => (
+                <a key={item.alt} href={item.href} target='blank'>
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    />
+                </a>
+              ))}
+              {/* Foto */}
               </div>
-            </div>
+                <div className='flex justify-center border-solid border-8 border-black rounded-full black-and-white'>
+                  <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-full'/>
+                </div>
+              </div>
 
-            {/* Infos */}
-            <div className='flex flex-col lg:text-lg'>
-              <div className='flex'>
-                <p className='text-4xl font-semibold'>{myInfo.name}</p>
-              </div>
-              <div className='flex mt-1 text-gray-700'>
-                <span>Desenvolvedor Web Fullstack</span>
-              </div>
-              <div className='flex flex-col mt-5 text-gray-700 max-w-md'>
-                <p className='text-left break-words flex justify-start'>
-                  {myInfo.passions}
-                </p>
-              </div>
-            </div>
+              {/* Infos */}
+              <div className='flex flex-col lg:text-lg'>
+                <div className='flex'>
+                  <p className='text-4xl font-semibold'>{myInfo.name}</p>
+                </div>
+                <div className='flex mt-1 text-gray-700'>
+                  <span>Desenvolvedor Web Fullstack</span>
+                </div>
+                <div className='flex flex-col mt-5 text-gray-700 max-w-md'>
+                  <p className='text-left break-words flex justify-start'>
+                    {myInfo.passions}
+                  </p>
+                </div>
           </div>
         </div>
+      </div>
         
         {/* Mouse */}
         <div className={`flex justify-center ${inView ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 p-2 mt-5`}>
