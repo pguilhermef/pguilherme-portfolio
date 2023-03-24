@@ -30,15 +30,15 @@ const handleDownload = () => {
 function AboutMe() {
   return (
     <section id='about' className='flex flex-col justify-center items-center h-[90vh] lg:h-[80vh] text-black font-poppins'>
-      <div className='flex flex-col justify-evenly items-center w-full max-w-6xl lg:h-5/6'>
+      <div className='flex flex-col justify-evenly items-center w-full max-w-7xl lg:h-5/6'>
       <div className='flex flex-col h-auto items-center lg:w-full lg:justify-center'>
         {/* Sobre mim */}
         <div className='flex'>
           <p className='text-4xl font-semibold mt-2'>Sobre mim</p>
         </div>
-        <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-center lg:h-auto lg:w-5/6 lg:mb-10 lg:max-w-screen-xl'>
+        <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-center lg:h-auto lg:w-5/6 lg:mt-14 lg:mb-10 lg:max-w-screen-xl'>
           {/* Photo */}
-          <div className='w-48 lg:w-72 mt-5 lg:mt-20 flex justify-center'>
+          <div className='w-48 lg:w-72 mt-5 flex justify-center'>
             <div className='flex justify-center rounded-3xl black-and-white'>
               <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-2xl'/>
             </div>
@@ -69,7 +69,7 @@ function AboutMe() {
       {/* Download Curriculo */}
       <div
       onClick={handleDownload}
-      className={`flex justify-center items-center px-6 py-3 lg:mt-6 bg-gray-800 rounded-xl hover:bg-gray-700`}>
+      className={`flex justify-center items-center px-6 py-3 lg:mt-6 bg-gray-800 rounded-xl hover:cursor-pointer hover:bg-gray-700`}>
         <span className='mt-1 font-medium text-white'>Baixar currículo</span>
         <div className='ml-2 w-8'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
