@@ -57,16 +57,16 @@ function Navbar() {
                 navbarIsOpen ? 'p-12 block' : 'hidden'
               }`}
             >
-              <ul className="h-screen lg:h-auto items-center justify-center lg:flex ">
+              <ul className="h-screen lg:h-auto items-center justify-center lg:flex">
                 {navigation.map((item) => (
-                  <Link href={item.href} key={item.name} >
+                  <Link href={item.href} key={item.name}>
                     <li
                       onClick={(navbarIsOpen) => {
                         if (navbarIsOpen !== true) {
                           setNavbarIsOpen(!navbarIsOpen)
                         }
                       }}
-                      className="flex justify-center items-center py-6 lg:py-0 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent">
+                      className="flex justify-center items-center py-6 lg:py-0 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent cursor-pointer">
                       {item.name}
                     </li>
                   </Link>
