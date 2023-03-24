@@ -11,24 +11,24 @@ const links = [
 
 function Footer() {
   return (
-    <>
-    <div>
-      <span id='about'>Entre em contato comigo!</span>
-      <p>
-        <a  href="mailto:pguilhermesanttos@gmail.com">pguilhermesanttos@gmail.com</a>
-      </p>
-      <div>
-      {links.map((item) => (
-          <a key={item.alt} href={item.href} target='blank'>
-            <Image
-              src={item.src}
-              alt={item.alt}
-            />
-          </a>
-      ))}
+    <footer className='h-32 bg-white border flex justify-center items-center'>
+      <div className="flex flex-col justify-center items-center">
+        <p id='about' className="cursor-default font-bold">Entre em contato comigo!</p>
+        <p>
+          pguilhermesanttos@gmail.com
+        </p>
+        <div>
+        {links.map((item) => (
+            <a key={item.alt} href={item.href} target='blank'>
+              <Image
+                src={item.src}
+                alt={item.alt}
+              />
+            </a>
+        ))}
+        </div>
       </div>
-    </div>
-    </>
+    </footer>
   )
 }
 
