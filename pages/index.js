@@ -2,7 +2,6 @@ import AboutMe from '../components/AboutMe'
 import Homepage from '../components/Home'
 import Projects from '../components/Projects'
 import Skills from '../components/Skills'
-import Contact from '../components/Contact'
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
           <AboutMe />
           <Projects/>
           <Skills/>
-          <Contact/>
         </main>
     </div>
   )
