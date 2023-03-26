@@ -1,11 +1,24 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
+  mode: 'jit',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        portfolio: {
+          white: '#FAFAFA',
+          gray: '#333333',
+        }
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
+      fontWeight: {
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+      },
+    },
   },
+  variants: {},
   plugins: [],
 }
