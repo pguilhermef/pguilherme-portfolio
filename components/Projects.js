@@ -12,7 +12,7 @@ import project4 from '../public/projects_thumb/4.png'
 const myProjects = [
   {
     name: 'Go Pizza - Landing Page',
-    description: 'Descrição em breve',
+    description: 'Uma Landing Page criada para atrair potenciais franqueados para uma rede de pizzarias. Foquei em oferecer uma apresentação visualmente atraente dos produtos e informações sobre as vantagens de se tornar um franqueado.',
     technologies: 'React, Tailwind',
     thumbnail: project1,
     knowledgeArea: 'Front-end',
