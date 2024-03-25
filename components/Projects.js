@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 
-import eye from '../public/project_links/eye.svg'
-import github from '../public/project_links/github-alt.svg'
+import eye from '../public/project_links/eye.svg';
+import github from '../public/project_links/github-alt.svg';
 
-import project1 from '../public/projects_thumb/1.png'
-import project2 from '../public/projects_thumb/2.png'
-import project3 from '../public/projects_thumb/3.png'
-import project4 from '../public/projects_thumb/4.png'
+import project1 from '../public/projects_thumb/1.png';
+import project2 from '../public/projects_thumb/2.png';
+import project3 from '../public/projects_thumb/3.png';
+import project4 from '../public/projects_thumb/4.png';
 
 const myProjects = [
   {
@@ -20,13 +20,13 @@ const myProjects = [
     vercelLink: 'https://www.mbebfranquias.com.br/'
   },
   {
-    name: 'Projeto 2',
-    description: 'Descrição a caminho',
-    technologies: 'Next.js, React, Tailwind.css, Javascript',
+    name: 'Star Wars - Filtro de Planetas',
+    description: 'Simples site criado para estudar sobre o consumo de apis e criação de filtros. Esse foi um dos meus primeiros projetos. Com o conhecimento que tenho hoje tenho muitos planos de melhorias para esse site. Você pode encontrar esses planos no README do github.',
+    technologies: 'HTML, CSS, Javascript',
     thumbnail: project2,
-    knowledgeArea: 'Back-end',
-    githubLink: 'https://github.com/pguilhermef',
-    vercelLink: 'https://github.com/pguilhermef'
+    knowledgeArea: 'Front-end',
+    githubLink: 'https://github.com/pguilhermef/starwars-planets-filter',
+    vercelLink: 'https://starwars-planets-filter.vercel.app/'
   },
   {
     name: 'Projeto 3',
