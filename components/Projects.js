@@ -11,13 +11,13 @@ import project4 from '../public/projects_thumb/4.png'
 
 const myProjects = [
   {
-    name: 'Projeto 1',
+    name: 'Go Pizza - Landing Page',
     description: 'Descrição em breve',
-    technologies: 'HTML, CSS, Javascript',
+    technologies: 'React, Tailwind',
     thumbnail: project1,
-    knowledgeArea: 'Back-end',
-    githubLink: 'https://github.com/pguilhermef',
-    vercelLink: 'https://linkedin.com/in/pguilhermef'
+    knowledgeArea: 'Front-end',
+    githubLink: 'https://github.com/pguilhermef/go2pizza',
+    vercelLink: 'https://www.mbebfranquias.com.br/'
   },
   {
     name: 'Projeto 2',
