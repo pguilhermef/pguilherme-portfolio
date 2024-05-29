@@ -30,12 +30,12 @@ const myProjects = [
   },
   {
     name: 'Projeto 3',
-    description: 'Descrição logo já',
-    technologies: 'HTML, CSS, Javascript, React, LocalStorage',
+    description: 'Landing Page criada para uma empresa local para atrair novos clientes de maneira mais profissional e dinâmica. Design simples e direto com botões que levam diretamente ao contato da empresa.',
+    technologies: 'HTML, CSS, Javascript, React',
     thumbnail: project3,
     knowledgeArea: 'Front-end',
-    githubLink: 'https://github.com/pguilhermef',
-    vercelLink: 'https://github.com/pguilhermef'
+    githubLink: 'https://github.com/pguilhermef/higmaster',
+    vercelLink: 'https://higmaster.vercel.app/'
   },
   {
     name: 'Projeto 4',
