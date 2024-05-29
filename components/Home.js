@@ -20,11 +20,11 @@ const links = [
     alt: '/',
     href: 'https://github.com/pguilhermef'
   },
-  {
-    src: instagram_logo,
-    alt: '/projects',
-    href: 'https://instagram.com/pege.dev'
-  },
+  // {
+  //   src: instagram_logo,
+  //   alt: '/projects',
+  //   href: 'https://instagram.com/pege.dev'
+  // },
   {
     src: linkedin_logo,
     alt: '/wallpapers',

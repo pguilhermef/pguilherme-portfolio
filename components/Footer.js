@@ -5,7 +5,7 @@ import linkedin_logo from '../public/svg_links/linkedin_logo.svg'
 
 const links = [
   { src: github_logo, alt: '/', href: 'https://github.com/pguilhermef'},
-  { src: instagram_logo, alt: '/projects', href: 'https://instagram.com/pege.dev' },
+  // { src: instagram_logo, alt: '/projects', href: 'https://instagram.com/pege.dev' },
   { src: linkedin_logo, alt: '/wallpapers', href: 'https://linkedin.com/in/pguilhermef' },
 ]
 
