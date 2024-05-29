@@ -29,7 +29,7 @@ const myProjects = [
     vercelLink: 'https://starwars-planets-filter.vercel.app/'
   },
   {
-    name: 'Projeto 3',
+    name: 'Higmaster - Landing Page',
     description: 'Landing Page criada para uma empresa local para atrair novos clientes de maneira mais profissional e dinâmica. Design simples e direto com botões que levam diretamente ao contato da empresa.',
     technologies: 'HTML, CSS, Javascript, React',
     thumbnail: project3,
