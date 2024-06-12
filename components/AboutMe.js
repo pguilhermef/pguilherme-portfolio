@@ -8,7 +8,7 @@ import myPhoto from '../public/pguilherme_2.jpeg';
 
 const myInfo = {
   name: 'Paulo Guilherme',
-  profession: 'Desenvolvedor Web Fullstack',
+  profession: 'Desenvolvedor Web Front-end',
   infosInSquares: [
     {
       icon: clock,
@@ -23,10 +23,6 @@ const myInfo = {
   ],
   photo: myPhoto,
 }
-
-const handleDownload = () => {
-  console.log('O currículo está sendo reconstruído. Portanto, está indisponível no momento.')
-};
 
 function AboutMe() {
   return (
@@ -54,13 +50,13 @@ function AboutMe() {
           </div>
           <div className='flex flex-col mt-2 lg:mt-5 text-portfolio-gray max-w-md'>
             <p className='text-left break-words px-7'>
-              Ao escrever códigos, meu lema é: <strong>Limpeza, otimização, melhoria contínua e persistência.</strong> As principais tecnologias que uso são o <strong>React.js</strong> e <strong>Node.js</strong>.
+              Ao criar sites e aplicações, meu lema é: <strong>Limpeza, otimização, melhoria contínua e persistência.</strong> As principais tecnologias que uso são o <strong>React.js</strong> e <strong>Node.js</strong>.
             </p>
           </div>
         </div>
       </div>
     </div>
-    <a onClick={handleDownload} href='/images/curriculum.pdf' download="Paulo Guilherme - Dev Front-end.pdf" className='flex justify-center items-center px-6 py-3 lg:mt-6 bg-gray-800 rounded-xl cursor-pointer hover:bg-gray-700 mt-5'>
+    <a href='/images/curriculum.pdf' download="Paulo Guilherme - Dev Front-end.pdf" className='flex justify-center items-center px-6 py-3 lg:mt-6 bg-gray-800 rounded-xl cursor-pointer hover:bg-gray-700 mt-5'>
       <span className='mt-1 font-medium text-white' >Baixar currículo</span>
       <div className='ml-2 w-8'>
         <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>

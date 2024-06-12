@@ -9,9 +9,9 @@ import linkedin_logo from '../public/svg_links/linkedin_logo.svg'
 
 const myInfo = {
   name: 'Paulo Guilherme',
-  profession: 'Desenvolvedor Web Fullstack',
+  profession: 'Desenvolvedor Web Front-End',
   photo: myPhoto,
-  passions: 'Sou apaixonado por tecnologia e sempre em busca de novos desafios. Estou sempre buscando aprender novas ferramentas e aprimorar minhas habilidades para criar soluções e ajudar as pessoas através da tecnologia.',
+  passions: 'Sou apaixonado por tecnologia e estou sempre em busca de novos desafios. Estou sempre buscando aprender novas ferramentas e aprimorar minhas habilidades para criar soluções e ajudar as pessoas através da tecnologia.',
 }
 
 const links = [
@@ -62,7 +62,7 @@ function Homepage() {
       <p className='text-4xl font-semibold'>{myInfo.name}</p>
     </div>
     <div className='flex mt-1 text-gray-700'>
-      <span>Desenvolvedor Web Fullstack</span>
+      <span>{myInfo.profession}</span>
     </div>
     <div className='flex flex-col mt-5 text-gray-700 max-w-md'>
       <p className='text-left break-words flex justify-start'>{myInfo.passions}</p>
