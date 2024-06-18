@@ -52,7 +52,7 @@ function Homepage() {
           ))}
         </div>
         {/* Foto */}
-        <div className='flex justify-center border-solid border-8 border-black rounded-full black-and-white w-56 lg:w-auto'>
+        <div className='flex justify-center border-solid border-8 border-black rounded-full  w-56 lg:w-auto'>
           <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-full' />
         </div>
       </div>

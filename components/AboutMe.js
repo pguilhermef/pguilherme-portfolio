@@ -4,7 +4,7 @@ import React from 'react';
 import clock from '../public/about_me_infos/clock.svg';
 import desktop from '../public/about_me_infos/desktop.svg';
 // import curriculum from "../public/curriculum.pdf";
-import myPhoto from '../public/pguilherme_2.jpeg';
+import myPhoto from '../public/pguilherme_3.jpg';
 
 const myInfo = {
   name: 'Paulo Guilherme',
@@ -34,7 +34,7 @@ function AboutMe() {
       </div>
       <div className='flex flex-col items-center lg:flex-row lg:justify-evenly lg:items-center lg:h-auto lg:w-5/6 lg:mt-14 lg:mb-10 lg:max-w-screen-xl'>
         <div className='w-48 lg:w-72 mt-5 flex justify-center'>
-          <div className='flex justify-center rounded-3xl black-and-white shadow-xl'>
+          <div className='flex justify-center rounded-3xl shadow-lg shadow-black '>
             <Image src={myInfo.photo} alt={`Foto de ${myInfo.name}, ${myInfo.profession}`} className='rounded-2xl' />
           </div>
         </div>
