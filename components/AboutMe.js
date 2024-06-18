@@ -26,7 +26,7 @@ const myInfo = {
 
 function AboutMe() {
   return (
-    <section id='about' className='flex flex-col justify-center items-center h-screen lg:h-[80vh] text-black font-poppins'>
+    <section id='about' className='flex flex-col justify-center items-center lg:h-[80vh] text-black font-poppins'>
   <div className='flex flex-col justify-evenly items-center w-full max-w-7xl h-[90vh] lg:h-8/12'>
     <div className='flex flex-col h-auto items-center lg:w-full lg:justify-center'>
       <div className='flex'>

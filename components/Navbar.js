@@ -8,7 +8,8 @@ import logo from '../public/logo_images/logo_light.png'
 
 const navigation = [
   { name: 'Início', href: '#home' },
-  { name: 'Quem sou eu', href: '#about' },
+  { name: 'Experiencias', href: '#experiencies'},
+  // { name: 'Quem sou eu', href: '#about' },
   { name: 'Projetos', href: '#projects' },
   { name: 'Habilidades', href: '#skills' },
 ];
