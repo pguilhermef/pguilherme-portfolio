@@ -5,7 +5,7 @@ import myExperiences from '../../content/myExperiences'
 
 function experiencesPage() {
   return (
-    <div>
+    <div className='text-black'>
       <div id='experiencies' className='flex flex-col items-center'>
         <div className='flex mt-20 font-poppins'>
           <p className='text-3xl md:text-4xl font-semibold'>Experiências</p>
