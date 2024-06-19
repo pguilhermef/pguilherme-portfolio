@@ -7,11 +7,11 @@ import openNavbar from '../public/navbar_svg/open_navbar.svg'
 import logo from '../public/logo_images/logo_light.png'
 
 const navigation = [
-  { name: 'Início', href: '#home' },
-  { name: 'Experiencias', href: '#experiencies'},
+  { name: 'Início', href: '/#home' },
+  { name: 'Experiencias', href: '/#experiencies'},
   // { name: 'Quem sou eu', href: '#about' },
-  { name: 'Projetos', href: '#projects' },
-  { name: 'Habilidades', href: '#skills' },
+  { name: 'Habilidades', href: '/#skills' },
+  { name: 'Projetos', href: '/#projects' },
 ];
 
 // To do: Criar menu responsivo para telas menores.
