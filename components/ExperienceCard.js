@@ -7,7 +7,7 @@ export function ExperienceCard({ title, company, employmentType, description, sk
   const formattedStartDate = format(new Date(startDate), 'MMM yyyy');
 
   return (
-    <div className="bg-gray-900 text-gray-100 rounded-lg border border-gray-700 p-6 shadow-lg max-w-4xl mx-auto my-8">
+    <div className="bg-neutral-900 text-gray-100 rounded-lg border border-gray-700 p-6 shadow-lg max-w-4xl mx-auto mt-8 mb-2">
       <div className="flex justify-between mb-4">
         <div>
           <h3 className="text-2xl font-semibold">{title}</h3>
@@ -17,7 +17,7 @@ export function ExperienceCard({ title, company, employmentType, description, sk
           <p className="text-lg">{formattedStartDate} - {formattedEndDate}</p>
         </div>
       </div>
-      <pre className="bg-gray-800 p-6 rounded-lg text-base whitespace-pre-wrap">
+      <pre className="bg-neutral-800 p-6 rounded-lg text-base whitespace-pre-wrap">
         {description}
       </pre>
       <div className="mt-4">

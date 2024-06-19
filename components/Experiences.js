@@ -1,11 +1,13 @@
+import Link from 'next/link';
 import { ExperienceCard } from '../components/ExperienceCard';
 
 export default function Experiences() {
   const experience = {
-    title: 'Senior Developer',
-    company: 'Tech Company',
+    title: 'Desenvolvedor Junior',
+    company: 'Macrosoft',
     employmentType: 'Full-time',
-    description: `As a Senior Frontend Software Engineer at Cloudbeds, I'm responsible for the creation of new Frontend integrations with several lodging business channels such as Tripadvisor, Hopper, and HRS. I also enhance existing connections with platforms like Vrbo and Airbnb. Additionally, I play an important role within the Company's Frontend Brain Trust Group, driving the implementation of cutting-edge technologies and industry best practices throughout our Frontend teams.`,
+    description: `Como desenvolvedor na macrosoft eu desenvolvi muitas tecnologias e tudo isso que eu estou falando está servindo apenas como teste então não leve em conta o que está escrito aqui pois isso é balela, só pra ir testando responsividade e tamanho ideal de descrição. Esse truque eu aprendi com meu professor japonês que sempre me dizia: "その車はベロシティーが高いです". Nunca vou esquecer dessas belas palavras.
+    `,
     skills: ['JavaScript', 'React', 'Next.js', 'Tailwind CSS'],
     startDate: '2020-01-01',
     endDate: '2023-06-01',
@@ -22,7 +24,9 @@ export default function Experiences() {
         </div>
       </div>
       <div className='flex font-poppins max-w-4xl m-auto'>
-        <p className='text-3xl md:text-4xl font-semibold'>Experiências</p>
+        <Link href='/experiences'>
+          <p className='text-1xl md:text-2xl font-semibold px-5 sm:px-0 hover:text-green-500  cursor-pointer'>{`Ver todas as experiências →`}</p>
+        </Link>
       </div>
     </div>
   );
