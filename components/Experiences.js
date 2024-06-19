@@ -7,7 +7,7 @@ export default function Experiences() {
 
   return (
     <div>
-      <div id='experiencies' className='flex flex-col items-center'>
+      <div id='experiencies' className='flex flex-col items-center text-black'>
         <div className='flex mt-20 font-poppins'>
           <p className='text-3xl md:text-4xl font-semibold'>Experiências</p>
         </div>
@@ -17,7 +17,7 @@ export default function Experiences() {
       </div>
       <div className='flex font-poppins max-w-4xl m-auto'>
         <Link href='/experiences'>
-          <p className='text-1xl md:text-2xl font-semibold px-5 sm:px-0 hover:text-green-500  cursor-pointer'>{`Ver todas as experiências →`}</p>
+          <p className='text-1xl md:text-2xl font-semibold px-5 sm:px-0 hover:text-green-500  cursor-pointer text-black'>{`Ver todas as experiências →`}</p>
         </Link>
       </div>
     </div>

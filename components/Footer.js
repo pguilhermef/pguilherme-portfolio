@@ -11,7 +11,7 @@ const links = [
 
 function Footer() {
   return (
-    <footer className='h-32 bg-white border flex justify-center items-center'>
+    <footer className='h-32 bg-white border flex justify-center items-center text-black'>
       <div className="flex flex-col justify-center items-center">
         <p id='about' className="cursor-default font-bold">Entre em contato comigo!</p>
         <p>
