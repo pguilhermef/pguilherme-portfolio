@@ -10,8 +10,8 @@ export default function Home() {
         <main>
           <Homepage />
           <Experiences />
-          <Projects/>
           <Skills/>
+          <Projects/>
         </main>
     </div>
   )
