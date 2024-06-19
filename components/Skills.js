@@ -1,49 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
+import mySkills from '../content/mySkills';
 
 import medal from '../public/award.svg'
-
-const mySkills = [
-  {
-    name: 'Front-end',
-    technologies: [
-      'HTML',
-      'React.js',
-      'CSS',
-      'Next.js',
-      'Javascript',
-      'Redux',
-      'Jest',
-      'Tailwind',
-    ] 
-  },
-  {
-    name: 'Back-end',
-    technologies: [
-      'Node.js',
-      'Python',
-      'MongoDB',
-      'MySQL',
-      'Typescript',
-      'POO',
-      'Docker',
-      'API Restful',
-    ] 
-  },
-  {
-    name: 'Extras',
-    technologies: [
-      'Linux',
-      'Git',
-      'Kanban',
-      'Scrum',
-      'CI/CD',
-      'JWT',
-      'SOLID',
-      'TDD',
-    ] 
-  },
-]
 
 function Skills() {
   return (

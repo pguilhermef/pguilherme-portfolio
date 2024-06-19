@@ -1,11 +1,9 @@
 import Image from 'next/image';
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import socialLinks from '../content/mySocialLinks';
 
 import myPhoto from '../public/pguilherme.jpeg';
-import github_logo from '../public/svg_links/github_logo.svg'
-import instagram_logo from '../public/svg_links/instagram_logo.svg'
-import linkedin_logo from '../public/svg_links/linkedin_logo.svg'
 
 const myInfo = {
   name: 'Paulo Guilherme',
@@ -13,24 +11,6 @@ const myInfo = {
   photo: myPhoto,
   passions: 'Sou apaixonado por tecnologia e estou sempre em busca de novos desafios. Estou sempre buscando aprender novas ferramentas e aprimorar minhas habilidades para criar soluções e ajudar as pessoas através da tecnologia.',
 }
-
-const links = [
-  {
-    src: github_logo,
-    alt: '/',
-    href: 'https://github.com/pguilhermef'
-  },
-  // {
-  //   src: instagram_logo,
-  //   alt: '/projects',
-  //   href: 'https://instagram.com/pege.dev'
-  // },
-  {
-    src: linkedin_logo,
-    alt: '/wallpapers',
-    href: 'https://linkedin.com/in/pguilhermef'
-  },
-]
 
 function Homepage() {
   const { ref, inView } = useInView({
@@ -43,9 +23,9 @@ function Homepage() {
   <div className='flex flex-col justify-around items-center w-full max-w-7xl lg:h-4/6 mt-20 lg:mt-5'>
     <div className='flex flex-col h-auto items-center lg:px-7 lg:w-full lg:flex-row lg:justify-evenly lg:items-start lg:h-auto '>
       {/* Redes sociais */}
-      <div className='p-2 max-w-lg lg:w-80 flex justify-center mb-5'>
-        <div className='flex flex-col items-center justify-center mr-2 lg:w-2/4'>
-          {links.map((item) => (
+      <div className='p-2 max-w-xl lg:w-80 flex justify-center mb-5'>
+        <div className='flex flex-col items-center justify-center mr-2 lg:w-3/4 '>
+          {socialLinks.map((item) => (
             <a key={item.alt} href={item.href} target='blank'>
               <Image src={item.src} alt={item.alt} />
             </a>
