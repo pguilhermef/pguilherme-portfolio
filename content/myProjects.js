@@ -31,15 +31,15 @@ const myProjects = [
     githubLink: 'https://github.com/pguilhermef/higmaster',
     vercelLink: 'https://higmaster.vercel.app/'
   },
-  {
-    name: 'Projeto 4',
-    description: 'Descrição em logística aduaneira Curitiba-PR',
-    technologies: 'Next.js, React, Tailwind.css, Javascript',
-    thumbnail: project4,
-    knowledgeArea: 'Full-Stack',
-    githubLink: 'https://github.com/pguilhermef',
-    vercelLink: 'https://github.com/pguilhermef'
-  },
+  // {
+  //   name: 'Aplicativo de Receitas',
+  //   description: 'Descrição em logística aduaneira Curitiba-PR',
+  //   technologies: 'Next.js, React, Tailwind.css, Javascript',
+  //   thumbnail: project4,
+  //   knowledgeArea: 'Full-Stack',
+  //   githubLink: 'https://github.com/pguilhermef',
+  //   vercelLink: 'https://github.com/pguilhermef'
+  // },
 ]
 
 export default myProjects
