@@ -3,7 +3,7 @@ import React from 'react'
 
 function index() {
   return (
-    <section className='h-screen flex flex-col justify-center items-center font-poppins text-2xl'>
+    <section className='h-screen flex flex-col justify-center items-center font-poppins text-2xl text-center text-black'>
       <span>Email enviado, obrigado!</span>
       <span>Responderemos o mais breve possível.</span>
       <Link href='/'>
