@@ -8,10 +8,9 @@ import logo from '../public/logo_images/logo_light.png'
 
 const navigation = [
   { name: 'Início', href: '/#home' },
-  { name: 'Experiencias', href: '/#experiencies'},
-  // { name: 'Quem sou eu', href: '#about' },
-  { name: 'Habilidades', href: '/#skills' },
   { name: 'Projetos', href: '/#projects' },
+  { name: 'Serviços', href: '/#services'},
+  { name: 'Contato', href: '/#contact' },
 ];
 
 // To do: Criar menu responsivo para telas menores.
