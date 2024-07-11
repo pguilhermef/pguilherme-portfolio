@@ -4,7 +4,7 @@ import logo from '../public/logo_images/logo_light.png'
 
 function Footer() {
   return (
-    <footer className='h-22 bg-white border flex justify-center items-center text-black'>
+    <footer className='h-24 bg-white border flex justify-center items-center text-black'>
       <div className="flex flex- sm:flex-row justify-center items-center space-x-3">
         <Link href="/">
           <div className="w-28 mt-2">

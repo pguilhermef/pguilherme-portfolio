@@ -19,7 +19,7 @@ function Homepage() {
   });
 
   return (
-    <section id='home' className='flex flex-col items-center justify-center h-screen text-black font-poppins mt-5 lg:mb-10' ref={ref}>
+    <section id='home' className='flex flex-col items-center justify-center h-screen text-black font-poppins lg:mb-10' ref={ref}>
       <div className='flex flex-col justify-around items-center w-full max-w-7xl lg:h-5/6 mt-10 lg:mt-5'>
         <div className='flex flex-col h-auto items-center lg:px-7 lg:w-full lg:flex-row lg:justify-evenly lg:items-start lg:h-auto'>
           {/* Redes sociais */}
