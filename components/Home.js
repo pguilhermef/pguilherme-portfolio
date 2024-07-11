@@ -47,7 +47,7 @@ function Homepage() {
             <div className='flex flex-col mt-5 text-gray-700 max-w-md gap-5 items-start'>
               <p className='break-words flex justify-start text-justify'>{myInfo.passions}</p>
               <Link href='#contact'>
-                <button className='flex btn fourth m-0'>AGENDAR BATE-PAPO</button>
+                <button className='flex btn fourth'>AGENDAR BATE-PAPO</button>
               </Link>
             </div>
           </div>

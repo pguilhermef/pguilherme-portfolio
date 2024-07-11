@@ -8,11 +8,6 @@ const socialLinks = [
     alt: '/',
     href: 'https://github.com/pguilhermef'
   },
-   {
-    //  src: instagram_logo,
-    //  alt: '/projects',
-    //  href: 'https://instagram.com/pguiilhermef'
-   },
   {
     src: linkedin_logo,
     alt: '/wallpapers',
