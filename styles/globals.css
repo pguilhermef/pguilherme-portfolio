@@ -34,3 +34,59 @@ a {
     background: black;
   }
 }
+
+@media (max-width: 768px) {
+  .btn {
+    -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  }
+}
+
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #000000;
+  border-radius: 0.6em;
+  color: #000000;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: left;
+      -ms-flex-item-align: left;
+          align-self: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'poppins', sans-serif;
+  font-weight: 700;
+}
+.btn:hover {
+  color: #ffffff;
+  outline: 0;
+}
+
+.fourth {
+  border-color: #000000;
+  color: #000000;
+  background-image: -webkit-linear-gradient(45deg, #000000 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #000000 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 100ms ease-in-out;
+  transition: background 300ms ease-in-out;
+  margin: 0;
+}
+.fourth:hover {
+  background-position: 0;
+}

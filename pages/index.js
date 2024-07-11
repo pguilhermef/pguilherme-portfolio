@@ -1,4 +1,4 @@
-import AboutMe from '../components/AboutMe'
+import Contact from '../components/Contact'
 import Homepage from '../components/Home'
 import Projects from '../components/Projects'
 import Services from '../components/Services'
@@ -10,6 +10,7 @@ export default function Home() {
           <Homepage />
           <Projects/>
           <Services />
+          <Contact />
         </main>
     </div>
   )
