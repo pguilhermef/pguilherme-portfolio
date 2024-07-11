@@ -4,7 +4,7 @@ import myServices from '../content/myServices';
 
 function Services() {
   return (
-    <section id='services' className='flex flex-col justify-start items-center min-h-[90vh] text-black font-poppins cursor-default'>
+    <section id='services' className='flex flex-col justify-start items-center  text-black font-poppins cursor-default'>
       <div className='flex flex-col h-auto items-center lg:w-full mt-16'>
         {/* Title */}
         <div className='flex flex-col items- mb-8 md:mb-10 text-center'>
