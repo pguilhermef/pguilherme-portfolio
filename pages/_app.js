@@ -1,12 +1,7 @@
-import MainContainer from '../components/MainContainer'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <MainContainer>
-      <Component {...pageProps} />
-    </MainContainer>
-  )
+  return <Component {...pageProps} />
 }
 
 export default MyApp

@@ -1,17 +1,25 @@
-import Contact from '../components/Contact'
-import Homepage from '../components/Home'
+import Navbar from '../components/Navbar'
+import Hero from '../components/Home'
+import About from '../components/About'
+import Skills from '../components/Services'
 import Projects from '../components/Projects'
-import Services from '../components/Services'
+import Experiences from '../components/Experiences'
+import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-    <div className='bg-logo w-auto'>
-        <main>
-          <Homepage />
-          <Projects/>
-          <Services />
-          <Contact />
-        </main>
-    </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experiences />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   )
 }

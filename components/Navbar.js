@@ -1,83 +1,212 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from 'react'
 
-import closeNavbar from '../public/navbar_svg/close_navbar.svg'
-import openNavbar from '../public/navbar_svg/open_navbar.svg'
-import logo from '../public/logo_images/logo_light.png'
+const navLinks = [
+  { label: 'Sobre', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projetos', href: '#projects' },
+  { label: 'Experiência', href: '#experience' },
+  { label: 'Contato', href: '#contact' },
+]
 
-const navigation = [
-  { name: 'Início', href: '/#home' },
-  { name: 'Projetos', href: '/#projects' },
-  { name: 'Serviços', href: '/#services'},
-  { name: 'Contato', href: '/#contact' },
-];
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('')
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-// To do: Criar menu responsivo para telas menores.
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
 
-function Navbar() {
-  const [navbarIsOpen, setNavbarIsOpen] = useState(false);
+      const sections = ['about', 'skills', 'projects', 'experience', 'contact']
+      for (const id of sections) {
+        const el = document.getElementById(id)
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          if (rect.top <= 120 && rect.bottom >= 120) {
+            setActive(`#${id}`)
+            break
+          }
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <section>
-      <nav className="w-full py-3 dark:bg-black bg-portfolio-white fixed top-0 left-0 right-0 z-50 font-poppins">
-        <div className="justify-between items-center px-7 mx-auto lg:max-w-7xl lg:items-center lg:flex">
-          <div>
-            <div className="flex items-center justify-between">
-              {/* LOGO */}
-              <div
-              className="w-40 flex hover:cursor-pointer"
-              onClick={(navbarIsOpen) => {
-                if (navbarIsOpen) {
-                  setNavbarIsOpen(!navbarIsOpen)
-                }
-              }}
-              >
-                <Link href="/">
-                  <Image src={logo} alt="logo"/>
-                </Link>
-              </div>
-              {/* HAMBURGER BUTTON FOR MOBILE */}
-              <div className="lg:hidden">
-                <button
-                  className="px-1 text-gray-700 rounded-lg outline-none"
-                  onClick={() => setNavbarIsOpen(!navbarIsOpen)}
-                >
-                  {navbarIsOpen ? (
-                    <Image src={closeNavbar} width={30} height={30} alt="logo" />
-                  ) : (
-                    <Image src={openNavbar} width={30} height={30} alt="logo" />
-                  )}
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              className={`flex-1 justify-self-center lg:block ${
-                navbarIsOpen ? 'p-12 block' : 'hidden'
-              }`}
-            >
-              <ul className="h-screen lg:h-auto items-center justify-center lg:flex">
-                {navigation.map((item) => (
-                  <Link href={item.href} key={item.name}>
-                    <li
-                      onClick={(navbarIsOpen) => {
-                        if (navbarIsOpen !== true) {
-                          setNavbarIsOpen(!navbarIsOpen)
-                        }
-                      }}
-                      className="flex justify-center items-center py-6 lg:py-0 text-xl text-black border-black lg:px-6 text-center border-b-2 lg:border-b-0 hover:text-gray-700 font-semibold lg:hover:bg-transparent cursor-pointer">
-                      {item.name}
-                    </li>
-                  </Link>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
-  );
-}
+    <header
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        transition: 'all 0.3s ease',
+        padding: scrolled ? '0.75rem 0' : '1.25rem 0',
+        background: scrolled
+          ? 'rgba(10, 10, 15, 0.92)'
+          : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(99,102,241,0.15)' : '1px solid transparent',
+      }}
+    >
+      <nav
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 2rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        {/* Logo */}
+        <a
+          href="#"
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontWeight: 700,
+            fontSize: '1.25rem',
+            background: 'linear-gradient(135deg, #6366f1, #a78bfa)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {'<PG.dev />'}
+        </a>
 
-export default Navbar
+        {/* Desktop Nav */}
+        <ul
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.25rem',
+            listStyle: 'none',
+          }}
+          className="hidden md:flex"
+        >
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  color: active === link.href ? '#a5b4fc' : '#94a3b8',
+                  background: active === link.href ? 'rgba(99,102,241,0.1)' : 'transparent',
+                  transition: 'all 0.2s ease',
+                  display: 'block',
+                }}
+                onMouseEnter={(e) => {
+                  if (active !== link.href) {
+                    e.target.style.color = '#c7d2fe'
+                    e.target.style.background = 'rgba(99,102,241,0.06)'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (active !== link.href) {
+                    e.target.style.color = '#94a3b8'
+                    e.target.style.background = 'transparent'
+                  }
+                }}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a
+              href="#contact"
+              className="btn-primary"
+              style={{ marginLeft: '0.5rem', padding: '0.5rem 1.25rem', fontSize: '0.875rem' }}
+            >
+              Contratar
+            </a>
+          </li>
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden"
+          style={{
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '0.5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '5px',
+          }}
+          aria-label="Toggle menu"
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              style={{
+                display: 'block',
+                width: '24px',
+                height: '2px',
+                background: '#a5b4fc',
+                borderRadius: '2px',
+                transition: 'all 0.3s ease',
+                transformOrigin: 'center',
+                transform: mobileOpen
+                  ? i === 0 ? 'rotate(45deg) translate(5px, 5px)' : i === 1 ? 'opacity: 0' : 'rotate(-45deg) translate(5px, -5px)'
+                  : 'none',
+                opacity: mobileOpen && i === 1 ? 0 : 1,
+              }}
+            />
+          ))}
+        </button>
+      </nav>
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div
+          className="md:hidden"
+          style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            background: 'rgba(10,10,15,0.97)',
+            backdropFilter: 'blur(20px)',
+            borderBottom: '1px solid rgba(99,102,241,0.2)',
+            padding: '1rem 2rem 1.5rem',
+          }}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                display: 'block',
+                padding: '0.75rem 0',
+                color: '#94a3b8',
+                fontWeight: 500,
+                borderBottom: '1px solid rgba(255,255,255,0.05)',
+                transition: 'color 0.2s',
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="btn-primary"
+            onClick={() => setMobileOpen(false)}
+            style={{ marginTop: '1rem', justifyContent: 'center', width: '100%' }}
+          >
+            Contratar
+          </a>
+        </div>
+      )}
+    </header>
+  )
+}
