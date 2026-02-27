@@ -74,7 +74,7 @@ export default function Navbar() {
             letterSpacing: '-0.02em',
           }}
         >
-          {'<PG.dev />'}
+          {'<pguilherme.dev/>'}
         </a>
 
         {/* Desktop Nav */}

@@ -14,8 +14,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  /* Offset for fixed navbar (~80px) so sections align correctly when navigating */
-  scroll-padding-top: 80px;
+  /* Offset exactly for the fixed navbar height so the section title lands near the top */
+  scroll-padding-top: 72px;
 }
 
 body {

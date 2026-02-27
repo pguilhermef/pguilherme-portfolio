@@ -157,7 +157,7 @@ export default function Hero() {
         style={{
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '8rem 2rem 4rem',
+          padding: '4rem 2rem 4rem',
           width: '100%',
           position: 'relative',
           zIndex: 1,
@@ -175,7 +175,7 @@ export default function Hero() {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
+              gap: '6px',
               padding: '6px 14px',
               borderRadius: '999px',
               background: 'rgba(99,102,241,0.1)',

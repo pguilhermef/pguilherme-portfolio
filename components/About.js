@@ -43,7 +43,8 @@ export default function About() {
             ref={sectionRef}
             className="section-reveal"
             style={{
-                padding: '6rem 0',
+                paddingTop: '2rem',
+                paddingBottom: '5rem',
                 background: '#0d0d16',
                 position: 'relative',
                 overflow: 'hidden',
@@ -60,8 +61,8 @@ export default function About() {
                     style={{
                         display: 'grid',
                         gridTemplateColumns: '1fr 1fr',
-                        gap: '5rem',
-                        alignItems: 'center',
+                        gap: '3rem',
+                        alignItems: 'start',
                     }}
                     className="about-grid"
                 >
