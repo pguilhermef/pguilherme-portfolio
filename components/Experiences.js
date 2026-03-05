@@ -134,7 +134,7 @@ export default function Experiences() {
         </div>
 
         {/* Timeline vertical */}
-        <div style={{ position: 'relative' }}>
+        <div className="timeline-container" style={{ position: 'relative' }}>
           {/* Vertical line */}
           <div
             style={{
@@ -156,7 +156,7 @@ export default function Experiences() {
         {/* Education card */}
         <div style={{ marginTop: '3.5rem' }}>
           <div
-            className="glass"
+            className="glass education-card"
             style={{
               borderRadius: '1rem',
               padding: '1.75rem',
@@ -196,6 +196,18 @@ export default function Experiences() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .timeline-container :global(.glass) {
+            padding: 1.25rem !important;
+          }
+          .education-card {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }

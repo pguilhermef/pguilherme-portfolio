@@ -119,6 +119,7 @@ export default function About() {
 
                         {/* Quick facts */}
                         <div
+                            className="about-facts"
                             style={{
                                 display: 'grid',
                                 gridTemplateColumns: '1fr 1fr',
@@ -146,7 +147,7 @@ export default function About() {
                     </div>
 
                     {/* Right: Values cards */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                    <div className="about-values" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                         {values.map((v, i) => (
                             <div
                                 key={v.title}
@@ -184,6 +185,20 @@ export default function About() {
           .about-grid {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
+          }
+          .about-values {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .about-grid {
+            gap: 1.5rem !important;
+          }
+          .about-facts {
+            grid-template-columns: 1fr !important;
+          }
+          .about-values {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>

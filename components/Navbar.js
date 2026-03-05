@@ -33,6 +33,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMobileOpen(false)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <header
       style={{
@@ -47,6 +56,7 @@ export default function Navbar() {
           ? 'rgba(10, 10, 15, 0.92)'
           : 'transparent',
         backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(99,102,241,0.15)' : '1px solid transparent',
       }}
     >
@@ -72,21 +82,14 @@ export default function Navbar() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             letterSpacing: '-0.02em',
+            flexShrink: 0,
           }}
         >
           {'<pguilherme.dev/>'}
         </a>
 
         {/* Desktop Nav */}
-        <ul
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.25rem',
-            listStyle: 'none',
-          }}
-          className="hidden md:flex"
-        >
+        <ul className="nav-desktop">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -132,13 +135,12 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden"
+          className="nav-mobile-btn"
           style={{
             background: 'none',
             border: 'none',
             cursor: 'pointer',
             padding: '0.5rem',
-            display: 'flex',
             flexDirection: 'column',
             gap: '5px',
           }}
@@ -156,7 +158,7 @@ export default function Navbar() {
                 transition: 'all 0.3s ease',
                 transformOrigin: 'center',
                 transform: mobileOpen
-                  ? i === 0 ? 'rotate(45deg) translate(5px, 5px)' : i === 1 ? 'opacity: 0' : 'rotate(-45deg) translate(5px, -5px)'
+                  ? i === 0 ? 'rotate(45deg) translate(5px, 5px)' : i === 1 ? 'scaleX(0)' : 'rotate(-45deg) translate(5px, -5px)'
                   : 'none',
                 opacity: mobileOpen && i === 1 ? 0 : 1,
               }}
@@ -166,16 +168,20 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
+      <div
+        className="nav-mobile-menu"
+        style={{
+          maxHeight: mobileOpen ? '500px' : '0',
+          opacity: mobileOpen ? 1 : 0,
+          overflow: 'hidden',
+          transition: 'max-height 0.3s ease, opacity 0.3s ease',
+        }}
+      >
         <div
-          className="md:hidden"
           style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
             background: 'rgba(10,10,15,0.97)',
             backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             borderBottom: '1px solid rgba(99,102,241,0.2)',
             padding: '1rem 2rem 1.5rem',
           }}
@@ -206,7 +212,34 @@ export default function Navbar() {
             Contratar
           </a>
         </div>
-      )}
+      </div>
+
+      <style jsx>{`
+        .nav-desktop {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          list-style: none;
+        }
+        .nav-mobile-btn {
+          display: none;
+        }
+        .nav-mobile-menu {
+          display: none;
+        }
+
+        @media (max-width: 768px) {
+          .nav-desktop {
+            display: none !important;
+          }
+          .nav-mobile-btn {
+            display: flex !important;
+          }
+          .nav-mobile-menu {
+            display: block !important;
+          }
+        }
+      `}</style>
     </header>
   )
 }

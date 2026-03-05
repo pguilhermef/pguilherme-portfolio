@@ -1,39 +1,5 @@
 import { useEffect, useRef } from 'react'
 
-// Pre-tokenized code lines to avoid dangerouslySetInnerHTML hydration issues
-const codeLines = [
-  [{ t: 'comment', v: '// Program.cs — ASP.NET Core 8' }],
-  [{ t: 'keyword', v: 'var' }, { t: 'plain', v: ' builder = ' }, { t: 'method', v: 'WebApplication' }, { t: 'plain', v: '.' }, { t: 'method', v: 'CreateBuilder' }, { t: 'plain', v: '(args);' }],
-  [],
-  [{ t: 'plain', v: 'builder.Services' }],
-  [{ t: 'plain', v: '    .' }, { t: 'method', v: 'AddControllers' }, { t: 'plain', v: '()' }],
-  [{ t: 'plain', v: '    .' }, { t: 'method', v: 'AddJsonOptions' }, { t: 'plain', v: '(opt => opt' }],
-  [{ t: 'plain', v: '        .JsonSerializerOptions' }],
-  [{ t: 'plain', v: '        .PropertyNamingPolicy = JsonNamingPolicy.CamelCase);' }],
-  [],
-  [{ t: 'plain', v: 'builder.Services.' }, { t: 'method', v: 'AddScoped' }, { t: 'plain', v: '<' }, { t: 'type', v: 'IUserRepository' }, { t: 'plain', v: ', ' }, { t: 'type', v: 'UserRepository' }, { t: 'plain', v: '>();' }],
-  [{ t: 'plain', v: 'builder.Services.' }, { t: 'method', v: 'AddScoped' }, { t: 'plain', v: '<' }, { t: 'type', v: 'IAuthService' }, { t: 'plain', v: ', ' }, { t: 'type', v: 'JwtAuthService' }, { t: 'plain', v: '>();' }],
-  [{ t: 'plain', v: 'builder.Services.' }, { t: 'method', v: 'AddDbContext' }, { t: 'plain', v: '<' }, { t: 'type', v: 'AppDbContext' }, { t: 'plain', v: '>(opt =>' }],
-  [{ t: 'plain', v: '    opt.' }, { t: 'method', v: 'UseNpgsql' }, { t: 'plain', v: '(builder.Configuration' }],
-  [{ t: 'plain', v: '        .' }, { t: 'method', v: 'GetConnectionString' }, { t: 'plain', v: '(' }, { t: 'string', v: '"Default"' }, { t: 'plain', v: ')));' }],
-  [],
-  [{ t: 'keyword', v: 'var' }, { t: 'plain', v: ' app = builder.' }, { t: 'method', v: 'Build' }, { t: 'plain', v: '();' }],
-  [],
-  [{ t: 'plain', v: 'app.' }, { t: 'method', v: 'UseAuthentication' }, { t: 'plain', v: '();' }],
-  [{ t: 'plain', v: 'app.' }, { t: 'method', v: 'UseAuthorization' }, { t: 'plain', v: '();' }],
-  [{ t: 'plain', v: 'app.' }, { t: 'method', v: 'MapControllers' }, { t: 'plain', v: '();' }],
-  [{ t: 'plain', v: 'app.' }, { t: 'method', v: 'Run' }, { t: 'plain', v: '();' }],
-]
-
-const tokenColors = {
-  keyword: '#818cf8',
-  type: '#a78bfa',
-  method: '#60a5fa',
-  string: '#6ee7b7',
-  comment: '#475569',
-  plain: '#94a3b8',
-}
-
 export default function Hero() {
   const canvasRef = useRef(null)
 
@@ -42,8 +8,11 @@ export default function Hero() {
     if (!canvas) return
     const ctx = canvas.getContext('2d')
 
-    canvas.width = canvas.offsetWidth
-    canvas.height = canvas.offsetHeight
+    const setSize = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
+    }
+    setSize()
 
     const particles = Array.from({ length: 60 }, () => ({
       x: Math.random() * canvas.width,
@@ -69,7 +38,6 @@ export default function Hero() {
         ctx.fill()
       })
 
-      // Draw lines between nearby particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x
@@ -89,20 +57,17 @@ export default function Hero() {
     }
     draw()
 
-    const handleResize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', setSize)
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', setSize)
     }
   }, [])
 
   return (
     <section
       id="home"
+      className="hero-section"
       style={{
         minHeight: '100vh',
         position: 'relative',
@@ -153,21 +118,7 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '4rem 2rem 4rem',
-          width: '100%',
-          position: 'relative',
-          zIndex: 1,
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '4rem',
-          alignItems: 'center',
-        }}
-        className="hero-grid"
-      >
+      <div className="hero-grid">
         {/* Left — Text */}
         <div style={{ animation: 'slideUp 0.8s ease forwards' }}>
           {/* Status badge */}
@@ -201,11 +152,10 @@ export default function Hero() {
 
           <h1
             style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              fontSize: 'clamp(2.2rem, 5vw, 4rem)',
               fontWeight: 800,
               lineHeight: 1.1,
               letterSpacing: '-0.03em',
-              marginBottom: '1rem',
               color: '#f1f5f9',
             }}
           >
@@ -227,13 +177,13 @@ export default function Hero() {
               display: 'flex',
               alignItems: 'center',
               gap: '12px',
-              marginBottom: '1.5rem',
+              marginBottom: '1.0rem',
             }}
           >
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
+                fontSize: 'clamp(0.85rem, 2vw, 1.1rem)',
                 color: '#a78bfa',
                 fontWeight: 500,
               }}
@@ -244,12 +194,12 @@ export default function Hero() {
             <span
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
+                fontSize: 'clamp(0.85rem, 2vw, 1.1rem)',
                 color: '#6366f1',
                 fontWeight: 500,
               }}
             >
-              C# & .NET Specialist
+              C# &amp; .NET
             </span>
           </div>
 
@@ -267,7 +217,7 @@ export default function Hero() {
             performance e boas práticas de engenharia de software.
           </p>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="hero-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <a href="#projects" className="btn-primary">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
@@ -283,18 +233,10 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div
-            style={{
-              display: 'flex',
-              gap: '2rem',
-              marginTop: '3rem',
-              paddingTop: '2rem',
-              borderTop: '1px solid rgba(255,255,255,0.06)',
-            }}
-          >
+          <div className="hero-stats">
             {[
-              { value: '1+', label: 'Ano na Sys Manager' },
-              { value: '10+', label: 'Soluções em produção' },
+              { value: '2+', label: 'Anos de experiência' },
+              { value: '15+', label: 'Soluções próprias' },
               { value: '89%', label: 'Redução de tempo em proc.' },
             ].map((stat) => (
               <div key={stat.label}>
@@ -319,97 +261,140 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — Code Window */}
+        {/* Right — Profile Photo */}
         <div
+          className="hero-photo-wrapper"
           style={{
             animation: 'slideUp 1s ease forwards',
             animationDelay: '0.2s',
             opacity: 0,
           }}
-          className="hidden md:block"
         >
-          <div
-            style={{
-              borderRadius: '1rem',
-              overflow: 'hidden',
-              background: 'rgba(17,17,24,0.9)',
-              border: '1px solid rgba(99,102,241,0.2)',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99,102,241,0.1), inset 0 1px 0 rgba(255,255,255,0.05)',
-            }}
-          >
-            {/* Window bar */}
+          <div className="hero-photo-container">
+            {/* Ambient glow behind the photo */}
             <div
+              className="hero-photo-glow"
               style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '110%',
+                height: '110%',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.08) 50%, transparent 70%)',
+                pointerEvents: 'none',
+                animation: 'glowPulse 4s ease-in-out infinite',
+                zIndex: 0,
+              }}
+            />
+
+            {/* Photo ring */}
+            <div className="hero-photo-ring">
+              <div className="hero-photo-inner">
+                <img
+                  src="/profile.png"
+                  alt="Paulo Guilherme — Backend Developer"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Floating badges */}
+            <div
+              className="hero-floating-badge"
+              style={{
+                position: 'absolute',
+                top: '8%',
+                right: '-5%',
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '0.875rem 1.25rem',
-                background: 'rgba(255,255,255,0.03)',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '12px',
+                background: 'rgba(17,17,24,0.9)',
+                border: '1px solid rgba(99,102,241,0.3)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                animation: 'floatBadge 5s ease-in-out infinite',
+                zIndex: 2,
               }}
             >
-              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }} />
-              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f59e0b' }} />
-              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22c55e' }} />
-              <span
-                style={{
-                  marginLeft: 'auto',
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: '0.75rem',
-                  color: '#475569',
-                }}
-              >
-                Program.cs
+              <span style={{ fontSize: '1.1rem' }}>⚡</span>
+              <span style={{ fontSize: '0.75rem', color: '#a5b4fc', fontWeight: 600 }}>
+                C# & .NET
               </span>
             </div>
 
-            {/* Code content */}
-            <pre
+            <div
+              className="hero-floating-badge"
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '0.78rem',
-                lineHeight: 1.7,
-                padding: '1.5rem',
-                overflowX: 'auto',
-                color: '#94a3b8',
-                margin: 0,
+                position: 'absolute',
+                bottom: '12%',
+                left: '-8%',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '12px',
+                background: 'rgba(17,17,24,0.9)',
+                border: '1px solid rgba(139,92,246,0.3)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                animation: 'floatBadge 5s ease-in-out infinite 1.5s',
+                zIndex: 2,
               }}
             >
-              {codeLines.map((tokens, i) => (
-                <div key={i} style={{ display: 'flex', gap: '1.5rem' }}>
-                  <span style={{ color: '#334155', userSelect: 'none', minWidth: '1.5rem', textAlign: 'right', flexShrink: 0 }}>
-                    {i + 1}
-                  </span>
-                  <span>
-                    {tokens.length === 0
-                      ? '\u00a0'
-                      : tokens.map((tok, j) => (
-                        <span key={j} style={{ color: tokenColors[tok.t] }}>{tok.v}</span>
-                      ))
-                    }
-                  </span>
-                </div>
-              ))}
-            </pre>
+              <span
+                style={{
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: '#4ade80',
+                  display: 'block',
+                  boxShadow: '0 0 8px rgba(74,222,128,0.8)',
+                }}
+              />
+              <span style={{ fontSize: '0.75rem', color: '#6ee7b7', fontWeight: 600 }}>
+                Open to Work
+              </span>
+            </div>
+
+            <div
+              className="hero-floating-badge"
+              style={{
+                position: 'absolute',
+                bottom: '5%',
+                right: '0%',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 14px',
+                borderRadius: '12px',
+                background: 'rgba(17,17,24,0.9)',
+                border: '1px solid rgba(96,165,250,0.3)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                animation: 'floatBadge 5s ease-in-out infinite 3s',
+                zIndex: 2,
+              }}
+            >
+              <span style={{ fontSize: '1.1rem' }}>☁️</span>
+              <span style={{ fontSize: '0.75rem', color: '#93c5fd', fontWeight: 600 }}>
+                Azure
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-          animation: 'float 3s ease-in-out infinite',
-          zIndex: 1,
-        }}
-      >
+      {/* Scroll indicator — positioned BELOW stats */}
+      <div className="hero-scroll-indicator">
         <span style={{ fontSize: '0.7rem', color: '#334155', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
           Scroll
         </span>
@@ -424,11 +409,145 @@ export default function Hero() {
       </div>
 
       <style jsx>{`
+        .hero-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 8rem 2rem 6rem;
+          width: 100%;
+          position: relative;
+          z-index: 1;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: center;
+        }
+        .hero-stats {
+          display: flex;
+          gap: 2rem;
+          margin-top: 3rem;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .hero-photo-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .hero-photo-container {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          max-width: 380px;
+        }
+        .hero-photo-ring {
+          position: relative;
+          z-index: 1;
+          width: 320px;
+          height: 320px;
+          border-radius: 50%;
+          padding: 4px;
+          background: linear-gradient(135deg, #6366f1, #a78bfa, #818cf8, #6366f1);
+          box-shadow: 0 0 60px rgba(99,102,241,0.3), 0 0 120px rgba(139,92,246,0.1);
+          animation: ringRotate 8s linear infinite;
+        }
+        .hero-photo-inner {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          overflow: hidden;
+          background: #0a0a0f;
+          border: 3px solid #0a0a0f;
+        }
+        .hero-scroll-indicator {
+          position: absolute;
+          bottom: 2rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+          animation: float 3s ease-in-out infinite;
+          z-index: 1;
+        }
+
+        @keyframes glowPulse {
+          0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+          50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+        }
+        @keyframes floatBadge {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+        }
+        @keyframes ringRotate {
+          0% { background: linear-gradient(0deg, #6366f1, #a78bfa, #818cf8, #6366f1); }
+          25% { background: linear-gradient(90deg, #6366f1, #a78bfa, #818cf8, #6366f1); }
+          50% { background: linear-gradient(180deg, #6366f1, #a78bfa, #818cf8, #6366f1); }
+          75% { background: linear-gradient(270deg, #6366f1, #a78bfa, #818cf8, #6366f1); }
+          100% { background: linear-gradient(360deg, #6366f1, #a78bfa, #818cf8, #6366f1); }
+        }
+
+        /* ──── Tablet ──── */
+        @media (max-width: 1024px) {
+          .hero-grid {
+            gap: 2.5rem;
+          }
+          .hero-photo-ring {
+            width: 280px;
+            height: 280px;
+          }
+        }
+
+        /* ──── Mobile ──── */
         @media (max-width: 768px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 2rem !important;
+            gap: 2.5rem !important;
             padding-top: 7rem !important;
+            padding-bottom: 5rem !important;
+          }
+          .hero-photo-wrapper {
+            order: -1;
+          }
+          .hero-photo-ring {
+            width: 220px;
+            height: 220px;
+          }
+          .hero-photo-container {
+            max-width: 280px;
+          }
+          .hero-floating-badge {
+            display: none !important;
+          }
+          .hero-stats {
+            gap: 1.25rem;
+            flex-wrap: wrap;
+          }
+          .hero-scroll-indicator {
+            display: none;
+          }
+        }
+
+        /* ──── Small Mobile ──── */
+        @media (max-width: 480px) {
+          .hero-grid {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+            padding-top: 6rem !important;
+            padding-bottom: 4rem !important;
+            gap: 2rem !important;
+          }
+          .hero-photo-ring {
+            width: 180px;
+            height: 180px;
+          }
+          .hero-stats {
+            gap: 1rem;
+          }
+          .hero-stats > div {
+            min-width: 0;
           }
         }
       `}</style>

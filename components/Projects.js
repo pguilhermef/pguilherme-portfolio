@@ -131,9 +131,10 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div
+          className="projects-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.5rem',
           }}
         >
@@ -352,6 +353,14 @@ export default function Projects() {
           </a>
         </div>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .projects-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }
